@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  react-front:
+    build: ./front
+    volumes:
+      - "./front/:/usr/src/app"
+    #command: sh -c "cd react-app && npm start"
+    ports:
+      - "3000:3000"
+    tty: true
+  python-backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./backend:/flask_back"
+    tty: true
+    environment:
+      TZ: Asia/Tokyo
+      FLASK_APP: run.py
+      FLASK_ENV: development
+    command: flask run -h 0.0.0.0
