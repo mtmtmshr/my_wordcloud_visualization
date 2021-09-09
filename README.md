@@ -1,10 +1,11 @@
 # my_wordcloud_visualization
 
-文章を入力するとWordCloudを作成します
+<br>
+文章を入力するとWordCloudを作成します。入力は1行1文にしてください。
+<br>
+画像は /backend/neko.txt 内の「吾輩は猫である」の文章に対してwordcloudを作成したときのものです
 
-画像は /backend/neko.txt 内の「吾輩は猫である」に対してwordcloudを作成したときのものです
-
-<img width="1287" alt="スクリーンショット 2021-09-09 13 37 09" src="https://user-images.githubusercontent.com/56148137/132623836-0a4220a4-2667-45a1-8065-88ae996cb7e1.png">
+<img width="1276" alt="スクリーンショット" src="https://user-images.githubusercontent.com/56148137/132624791-5ad29911-3ac6-4e43-9d3f-5d6c9932ba77.png">
 
 ## こだわり
 wordcloud上の単語をクリックすることで、その単語がどの文章で出現したかを確認することができます。
