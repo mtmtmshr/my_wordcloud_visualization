@@ -75,7 +75,6 @@ const WordCloud:React.FC<WordCloudProps> = (props:WordCloudProps) => {
     
     useEffect(() => {
         const getAPIData = async() => {
-            
             try {
                 let params = new URLSearchParams();
                 params.append('text', location.state.text);
@@ -84,6 +83,8 @@ const WordCloud:React.FC<WordCloudProps> = (props:WordCloudProps) => {
                 const result = await axios.post(`${URL}create_wordcloud`, params)
                 setData(result.data["layout"])
                 setWordData(result.data["words"])
+                setSrc("data:image/jpg;base64,"　+ result.data["wordcloud"])
+                console.log(result.data["wordcloud"])
                 setWord2sentence(result.data["word2sentence"])
             } catch (error) {
                 history.push({
@@ -93,20 +94,6 @@ const WordCloud:React.FC<WordCloudProps> = (props:WordCloudProps) => {
                     }
                 })
             }
-            
-            const result_image = await axios.get(
-                `${URL}image`,
-                {
-                    'responseType': 'blob',
-                    'headers': {
-                        'Content-Type': 'image/jpg'
-                    }
-
-                }
-            )
-            let urlCreator = window.URL || window.webkitURL;
-            setSrc(urlCreator.createObjectURL(result_image.data))
-            
         }
         getAPIData()
 
