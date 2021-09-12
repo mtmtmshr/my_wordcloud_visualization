@@ -5,10 +5,11 @@ services:
     build: ./front
     volumes:
       - "./front/:/usr/src/app"
-    #command: sh -c "cd react-app && npm start"
+    command: sh -c "cd react_app && npm i && npm start"
     ports:
       - "3000:3000"
     tty: true
+
   python-backend:
     build: ./backend
     ports:
